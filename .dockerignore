@@ -6,6 +6,7 @@
 !Online
 !SISI
 !Shared
+!init.custom.conf
 bin/**
 obj/**
 .DS_Store
