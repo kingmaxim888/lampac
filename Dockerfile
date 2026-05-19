@@ -121,6 +121,9 @@ COPY --chown=lampac:lampac --from=builder /out /
 HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
     CMD pgrep -x dotnet || exit 1
 
+COPY --chown=lampac:lampac init.custom.conf /lampac/init.conf
+RUN echo "${ADMIN_PASSWORD}" > /lampac/passwd
+
 USER lampac
 
 ENTRYPOINT ["/usr/share/dotnet/dotnet", "Core.dll"]
